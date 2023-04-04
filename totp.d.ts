@@ -15,6 +15,8 @@ type TotpPlugin = FastifyPluginCallback<totp.TOTP["options"]>;
 
 declare namespace totp {
   export interface Options {
+    /** The secret to use for the TOTP token. */
+    secret?: string;
     /** Encoding - Default: 'ascii' */
     encoding?: string;
     /** Algorithm - Default: 'sha512' */
