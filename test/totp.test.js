@@ -104,14 +104,14 @@ test('totp.generateQRCode', async t => {
 
   t.test('with a secret', async t => {
     t.plan(1)
-    const result = await fastify.totp.generateQRCode({ secret: 'abcdefg' })
+    const result = await fastify.totp.generateQRCode('abcdefg')
     const isQRCode = (result.indexOf('data:image/png;base64') === 0)
     t.equal(isQRCode, true, 'should return a data URL with QRCode')
   })
 
   t.test('with a secret and a label', async t => {
     t.plan(1)
-    const result = await fastify.totp.generateQRCode({ secret: 'abcdefg', label: 'test-qrcode' })
+    const result = await fastify.totp.generateQRCode('abcdefg', 'test-qrcode')
     const isQRCode = (result.indexOf('data:image/png;base64') === 0)
     t.equal(isQRCode, true, 'should return a data URL with QRCode')
   })
