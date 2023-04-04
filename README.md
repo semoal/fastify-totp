@@ -1,4 +1,4 @@
-# @semoal/fastify-totp
+# @sergiomorenoalbert/fastify-totp
 
 A plugin to handle TOTP (e.g. for 2FA), forked to handle typings and updated dependencies
 
@@ -7,15 +7,15 @@ A plugin to handle TOTP (e.g. for 2FA), forked to handle typings and updated dep
 ## Install
 
 ```bash
-npm i --save @semoal/fastify-totp
-yarn add @semoal/fastify-totp
-pnpm i --save @semoal/fastify-totp
+npm i --save @sergiomorenoalbert/fastify-totp
+yarn add @sergiomorenoalbert/fastify-totp
+pnpm i --save @sergiomorenoalbert/fastify-totp
 ```
 
 ## Usage
 
 ```js
-fastify.register(require('@semoal/fastify-totp'))
+fastify.register(require('@sergiomorenoalbert/fastify-totp'))
 
 // ...
 
