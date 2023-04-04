@@ -51,7 +51,7 @@ module.exports = fp(function (fastify, opts, next) {
     return url
   }
 
-  async function generateQRCodeFromSecret (secret, label, algorithm) {
+  async function generateQRCodeFromSecret (secret, label = TOTP_LABEL, algorithm = TOTP_ALG) {
     const url = fastify.totp.generateAuthURL(secret, label, algorithm)
 
     if (!url) return null
