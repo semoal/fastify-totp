@@ -1,4 +1,5 @@
 import { FastifyPluginCallback } from "fastify";
+import { GeneratedSecret } from "@levminer/speakeasy";
 
 declare module "fastify" {
   interface FastifyInstance {
@@ -40,15 +41,15 @@ declare namespace totp {
     };
 
     /** Generate a new secret with the provided length (or use default one otherwise)    */
-    generateSecret(length: number): string;
+    generateSecret(length?: number): GeneratedSecret;
     /** Generate a TOTP token based on given options. **/
-    generateToken(options: unknown): string;
+    generateToken(options: totp.Options): string;
     /** Generate an auth URL* that can be used to configure a third-party authenticator. */
-    generateAuthURL(options: unknown): string;
+    generateAuthURL(options: totp.Options): string;
     /** Genereate a data-URI of a QRCode to share the auth URL. */
-    generateQRCode(options: unknown): Promise<string>;
+    generateQRCode(options: totp.Options): Promise<string>;
     /** Verify a TOTP token with the original secret. */
-    verify(options: unknown): boolean;
+    verify(options: totp.Options): boolean;
   }
 
   export const totpPlugin: TotpPlugin;
