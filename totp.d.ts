@@ -17,6 +17,8 @@ declare namespace totp {
   export interface Options {
     /** The secret to use for the TOTP token. */
     secret?: string;
+    /** The TOTP token to verify. */
+    token?: string;
     /** Encoding - Default: 'ascii' */
     encoding?: string;
     /** Algorithm - Default: 'sha512' */
