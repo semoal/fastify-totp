@@ -1,19 +1,21 @@
-# fastify-totp
+# @semoal/fastify-totp
 
-A plugin to handle TOTP (e.g. for 2FA)
+A plugin to handle TOTP (e.g. for 2FA), forked to handle typings and updated dependencies
 
-![Node.js CI](https://github.com/heply/fastify-totp/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/semoal/fastify-totp/workflows/Node.js%20CI/badge.svg)
 
 ## Install
 
 ```bash
-npm i --save fastify-totp
+npm i --save @semoal/fastify-totp
+yarn add @semoal/fastify-totp
+pnpm i --save @semoal/fastify-totp
 ```
 
 ## Usage
 
 ```js
-fastify.register(require('fastify-totp'))
+fastify.register(require('@semoal/fastify-totp'))
 
 // ...
 
@@ -64,14 +66,15 @@ const qrcode = await fastify.totp.generateQRCode({ secret: secret.ascii })
 ## Test
 
 ```bash
-npm test
+pnpm install
+pnpm test
 ```
 
 ## Acknowledgements
 
-This project is kindly sponsored by:
+This project is kindly forked by:
 
-[![Beliven](https://assets.beliven.com/brand/logo_pos_color.svg)](https://www.beliven.com)
+[![Beliven](https://github.com/beliven-it/fastify-totp)](https://github.com/beliven-it/fastify-totp)
 
 ## License
 
