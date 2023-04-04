@@ -1,6 +1,6 @@
 {
   "name": "@sergiomorenoalbert/fastify-totp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A plugin to handle TOTP (e.g. for 2FA)",
   "main": "totp.js",
   "private": false,
@@ -14,7 +14,7 @@
   },
   "contributors": [
     "Beliven",
-    "Sergio Moreno <sergiomorenoalbert@gmail.com"
+    "Sergio Moreno <sergiomorenoalbert@gmail.com>"
   ],
   "keywords": [
     "fastify",
