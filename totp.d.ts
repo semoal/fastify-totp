@@ -17,6 +17,8 @@ declare namespace totp {
   export interface Options {
     /** The secret to use for the TOTP token. */
     secret?: string;
+    /** The TOTP issuer */
+    issuer?: string;
     /** The TOTP token to verify. */
     token?: string;
     /** Encoding - Default: 'ascii' */
@@ -51,13 +53,7 @@ declare namespace totp {
     /** Generate an auth URL* that can be used to configure a third-party authenticator. */
     generateAuthURL(options: totp.Options): string;
     /** Genereate a data-URI of a QRCode to share the auth URL. */
-    generateQRCode(
-      secret: string,
-      /** The label to show in third-party authenticators. Usually the app name. Default: "Fastify" */
-      label?: string,
-      /** Algorithm - Default: 'sha512' */
-      algorithm?: string
-    ): Promise<string>;
+    generateQRCode(options: totp.Options): Promise<string>;
     /** Verify a TOTP token with the original secret. */
     verify(options: totp.Options): boolean;
   }
