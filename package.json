@@ -1,16 +1,20 @@
 {
-  "name": "fastify-totp",
+  "name": "@semoal/fastify-totp",
   "version": "1.0.0",
   "description": "A plugin to handle TOTP (e.g. for 2FA)",
   "main": "totp.js",
   "types": "totp.d.ts",
   "scripts": {
-    "test": "npx tap -Rspec --coverage test/**/*.test.js"
+    "test": "tap -Rspec --coverage test/**/*.test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beliven-it/fastify-totp.git"
+    "url": "git+https://github.com/semoal/fastify-totp.git"
   },
+  "contributors": [
+    "Beliven",
+    "Sergio Moreno <sergiomorenoalbert@gmail.com"
+  ],
   "keywords": [
     "fastify",
     "plugin",
@@ -22,23 +26,21 @@
   "author": "Beliven",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/beliven-it/fastify-totp/issues"
+    "url": "https://github.com/semoal/fastify-totp/issues"
   },
-  "homepage": "https://github.com/beliven-it/fastify-totp#readme",
+  "homepage": "https://github.com/semoal/fastify-totp#readme",
   "devDependencies": {
     "eslint": "^7.27.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-standard": "^5.0.0",
-    "fastify": "^3.17.0",
-    "fastify-sensible": "^3.1.1",
-    "tap": "^16.0.0"
+    "fastify": "^4.15.0",
+    "tap": "^16.3.4"
   },
   "dependencies": {
-    "fastify-plugin": "^3.0.0",
-    "qrcode": "^1.4.4",
+    "fastify-plugin": "^4.5.0",
+    "qrcode": "^1.5.1",
     "@levminer/speakeasy": "^1.4.2"
   },
   "tap": {

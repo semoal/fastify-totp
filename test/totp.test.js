@@ -2,6 +2,7 @@
 
 const { test } = require('tap')
 const Fastify = require('fastify')
+const totpPlugin = require('../totp')
 
 const SECRET_LENGHT = 30
 
@@ -10,7 +11,8 @@ const buildApp = function (t) {
 
   t.teardown(() => fastify.close())
 
-  return fastify.register(require('../totp'), { secretLength: SECRET_LENGHT })
+  fastify.register(totpPlugin, { secretLength: SECRET_LENGHT })
+  return fastify
 }
 
 test('totp.generateSecret', async t => {

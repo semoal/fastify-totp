@@ -1,4 +1,4 @@
-import { FastifyPluginCallback, FastifyRequest } from "fastify";
+import { FastifyPluginCallback } from "fastify";
 
 declare module "fastify" {
   interface FastifyInstance {
