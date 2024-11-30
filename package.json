@@ -23,7 +23,8 @@
     }
   },
   "scripts": {
-    "build": "bunchee"
+    "build": "bunchee",
+    "test": "tap run"
   },
   "repository": {
     "type": "git",
