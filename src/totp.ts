@@ -37,6 +37,7 @@ const plugin: FastifyPluginCallback<PluginOptions> = function (fastify, opts, ne
   }
 
   function generateTOTPToken(options: speakeasy.TotpOptions): string | null {
+    if (!options) return null;
     if (!options.secret) return null
 
     const token = speakeasy.totp({
@@ -50,6 +51,7 @@ const plugin: FastifyPluginCallback<PluginOptions> = function (fastify, opts, ne
   }
 
   function generateAuthURLFromSecret(options: speakeasy.OtpauthURLOptions): string | null {
+    if (!options) return null;
     if (!options.secret) return null
 
     const url = speakeasy.otpauthURL({

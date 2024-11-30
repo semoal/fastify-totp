@@ -1,8 +1,6 @@
-'use strict'
-
-const { test } = require('tap')
-const Fastify = require('fastify')
-const totpPlugin = require('../totp')
+import { test } from 'tap'
+import Fastify from 'fastify'
+import totpPlugin from '../dist/es/totp.mjs'
 
 const SECRET_LENGHT = 30
 
