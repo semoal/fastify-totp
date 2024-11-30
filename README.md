@@ -4,6 +4,12 @@ A plugin to handle TOTP (e.g. for 2FA), forked to handle typings and updated dep
 
 ![Node.js CI](https://github.com/semoal/fastify-totp/workflows/Node.js%20CI/badge.svg)
 
+
+| Fastify version | @sergiomorenoalbert/fastify-totp version  |
+|---|---|
+|  v5 |  ^2.x.x |
+|  v4 |  ^1.x.x |
+
 ## Install
 
 ```bash
