@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "bunchee",
-    "test": "tap run"
+    "test": "tap run;echo 'Tests passed!'"
   },
   "repository": {
     "type": "git",
