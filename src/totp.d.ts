@@ -1,5 +1,5 @@
-import { FastifyPluginCallback } from "fastify";
-import { GeneratedSecret } from "@levminer/speakeasy";
+import type { FastifyPluginCallback } from "fastify";
+import type { GeneratedSecret, OtpauthURLOptions, TotpOptions, TotpVerifyOptions, Algorithm } from "@levminer/speakeasy";
 
 declare module "fastify" {
   interface FastifyInstance {
@@ -7,31 +7,13 @@ declare module "fastify" {
   }
 
   interface FastifyRequest {
-    totpVerify(options?: totp.Options): void;
+    totpVerify(options?: TotpVerifyOptions): void;
   }
 }
 
 type TotpPlugin = FastifyPluginCallback<totp.TOTP["options"]>;
 
 declare namespace totp {
-  export interface Options {
-    /** The secret to use for the TOTP token. */
-    secret?: string;
-    /** The TOTP issuer */
-    issuer?: string;
-    /** The TOTP token to verify. */
-    token?: string;
-    /** Encoding - Default: 'ascii' */
-    encoding?: string;
-    /** Algorithm - Default: 'sha512' */
-    algorithm?: string;
-    /** Step - Default: 30 */
-    step?: number;
-    /** Label - Default: "Fastify" */
-    label?: string;
-    /** Window - Default: 1 */
-    window?: number;
-  }
   export interface TOTP {
     options: {
       /** The length of the generated secret. Default: 20 */
@@ -41,7 +23,7 @@ declare namespace totp {
       /** The allowable previous or future "time-windows" to check against of. Default: 1  */
       totpWindow?: number;
       /** The algorithm to use for hash generation. Default: "sha512"  */
-      totpAlg?: string;
+      totpAlg?: Algorithm;
       /** Time step in seconds. Default: 30 */
       totpStep?: number;
     };
@@ -49,13 +31,13 @@ declare namespace totp {
     /** Generate a new secret with the provided length (or use default one otherwise)    */
     generateSecret(length?: number): GeneratedSecret;
     /** Generate a TOTP token based on given options. **/
-    generateToken(options: totp.Options): string;
+    generateToken(options: TotpOptions): string | null;
     /** Generate an auth URL* that can be used to configure a third-party authenticator. */
-    generateAuthURL(options: totp.Options): string;
+    generateAuthURL(options: OtpauthURLOptions): string | null;
     /** Genereate a data-URI of a QRCode to share the auth URL. */
-    generateQRCode(options: totp.Options): Promise<string>;
+    generateQRCode(options: OtpauthURLOptions): Promise<string | null>;
     /** Verify a TOTP token with the original secret. */
-    verify(options: totp.Options): boolean;
+    verify(options: TotpVerifyOptions): boolean;
   }
 
   export const totpPlugin: TotpPlugin;

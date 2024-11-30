@@ -1,12 +1,31 @@
 {
   "name": "@sergiomorenoalbert/fastify-totp",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "A plugin to handle TOTP (e.g. for 2FA)",
-  "main": "totp.js",
+  "main": "src/totp.ts",
+  "types": "src/totp.d.ts",
   "private": false,
-  "types": "totp.d.ts",
+  "files": [
+    "dist",
+    "src/totp.ts",
+    "src/totp.d.ts"
+  ],
+  "exports": {
+    "./totp": {
+      "import": {
+        "types": "./dist/es/totp.d.mts",
+        "default": "./dist/es/totp.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/totp.d.ts",
+        "default": "./dist/cjs/totp.js"
+      }
+    }
+  },
   "scripts": {
-    "test": "tap -Rspec --coverage test/**/*.test.js"
+    "build": "bunchee",
+    "lint": "eslint totp.js test/**/*.test.js",
+    "test": "tap -Rspec test/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -30,21 +49,25 @@
     "url": "https://github.com/semoal/fastify-totp/issues"
   },
   "homepage": "https://github.com/semoal/fastify-totp#readme",
-  "devDependencies": {
-    "eslint": "^7.27.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "fastify": "^4.15.0",
-    "tap": "^16.3.4"
-  },
   "dependencies": {
-    "fastify-plugin": "^4.5.0",
-    "qrcode": "^1.5.1",
-    "@levminer/speakeasy": "^1.4.2"
+    "@levminer/speakeasy": "^1.4.2",
+    "fastify-plugin": "^5.0.1",
+    "qrcode": "^1.5.4"
   },
-  "tap": {
-    "check-coverage": false
-  }
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.16.0",
+    "@types/qrcode": "^1.5.5",
+    "bunchee": "^6.0.0",
+    "eslint": "^9.16.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "fastify": "^5.1.0",
+    "globals": "^15.12.0",
+    "tap": "^21.0.1",
+    "typescript": "^5.7.2"
+  },
+  "tap": {}
 }
