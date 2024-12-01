@@ -1,6 +1,6 @@
 {
   "name": "@sergiomorenoalbert/fastify-totp",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "A plugin to handle TOTP (e.g. for 2FA)",
   "private": false,
   "files": [
@@ -8,14 +8,15 @@
     "src/index.ts",
     "src/totp.d.ts"
   ],
+  "types": "./src/totp.d.ts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/es/totp.d.mts",
+        "types": "./src/totp.d.ts",
         "default": "./dist/es/totp.mjs"
       },
       "require": {
-        "types": "./dist/cjs/totp.d.ts",
+        "types": "./src/totp.d.ts",
         "default": "./dist/cjs/totp.js"
       }
     }
